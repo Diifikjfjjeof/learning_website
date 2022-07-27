@@ -5,15 +5,15 @@ from wtforms import StringField,SubmitField
 from flask_wtf import FlaskForm
 from wtforms.validators import data_required
 from flask_sqlalchemy import SQLAlchemy
-import random
+import random,os
 
 app = Flask(__name__)
 Bootstrap(app)
-app.secret_key = 'lilian is so beautiful in her own way.'
+app.secret_key = os.environ.get('KEY')
 ckeditor = CKEditor(app)
 db = SQLAlchemy(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///addbase.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///addbase.db'
 # -----------------------------------------------set up form here----------------
 class addform(FlaskForm):
     term = StringField(label='Term',validators=[data_required()])
@@ -27,7 +27,7 @@ class adddata(db.Model):
     meaning = db.Column(db.String(1000),nullable = False)
     sentence = db.Column(db.String(1000),nullable = False)
 
-db.create_all()
+# db.create_all()
 # --------------------------------------------------start here------------------
 previous_word = None
 @app.route('/',methods=['POST','GET'])
