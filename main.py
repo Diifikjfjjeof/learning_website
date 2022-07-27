@@ -13,7 +13,8 @@ app.secret_key = 'd;lf;ldgkflg;dlf;'
 ckeditor = CKEditor(app)
 db = SQLAlchemy(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] =  os.environ.get("DATABASE_URL",  "sqlite:///blog.db")
+
 # -----------------------------------------------set up form here----------------
 class addform(FlaskForm):
     term = StringField(label='Term',validators=[data_required()])
