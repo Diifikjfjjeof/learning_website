@@ -6,7 +6,7 @@ from flask_wtf import FlaskForm
 from wtforms.validators import data_required
 from flask_sqlalchemy import SQLAlchemy
 import random,os
-alldata
+
 app = Flask(__name__)
 Bootstrap(app)
 app.secret_key = 'd;lf;ldgkflg;dlf;'
