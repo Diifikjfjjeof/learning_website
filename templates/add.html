@@ -8,11 +8,11 @@
 </head>
 <body >
 <!--if you'd like to make it centered then you have to set the width.-->
-    <div>
+    <div class="row">
         <div style="height:1000px;background-image:url('../static/images/mountain.jpg');background-repeat:no-repeat;background-position:center;background-size:cover;">
             <br>
             <br>
-            <div style="padding:80px;width:50%;margin:0 auto;backdrop-filter:blur(50px);text-align:center">
+            <div class='col-lg-5 col-md-8 col-sm-10' style="float:none;margin:0 auto;padding:80px;backdrop-filter:blur(50px);text-align:center">
                  {{ckeditor.load()}}
                  {{wtf.quick_form(form,novalidate=True,button_map={"submit": "primary"})}}
             </div>
