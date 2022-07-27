@@ -38,6 +38,8 @@ def home():
 
     if alldata:
         random_word = random.choice(alldata)
+    else:
+        random_word = None
 
 
     if request.method == 'POST':
