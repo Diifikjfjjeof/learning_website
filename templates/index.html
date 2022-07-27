@@ -35,7 +35,7 @@
 
 <!--  -------------------------------------------------------------------------------------------------------------------->
   <div id='learning' class='row' style="text-align:center;background-image:url('../static/images/flower.jpg');background-repeat:no-repeat;background-position:center;background-size:cover;">
-
+    {% if data: %}
         {% for word in data:%}
             <div class="col-lg-8 col-md-10 mx-auto" style="margin:50px;backdrop-filter:blur(50px);">
                 <h1 style="font-size:50px;font-family: 'Gamja Flower', cursive;line-height:2;z-index:2;color:white;padding-left:20px;">
@@ -48,6 +48,19 @@
                 <hr>
             </div>
         {% endfor %}
+      {% else: %}
+        <div class="col-lg-8 col-md-10 mx-auto" style="margin:50px;backdrop-filter:blur(50px);">
+                <h1 style="font-size:50px;font-family: 'Gamja Flower', cursive;line-height:2;z-index:2;color:white;padding-left:20px;">
+                  </h1>
+                <h3 style="font-family: 'Gamja Flower', cursive;line-height:1.5;margin-left:15px;color:white">Meaning : </h3>
+                <h3 style="font-family: 'Gamja Flower', cursive;color:white;line-height:1.5;margin-left:15px;">Sentence :</h3>
+                <a class="btn btn-dark btn-lg" style="margin-top:30px;font-family: 'Gamja Flower', cursive;" href="{{url_for('edit',id=word.id)}}">Edit post</a>
+                <a class="btn btn-dark btn-lg" style="margin-top:30px;font-family: 'Gamja Flower', cursive;" href="{{url_for('add')}}">Create post</a>
+                <a href="{{url_for('delete',_anchor='learning',id=word.id)}}" class="btn btn-close" style="margin-top:35px;margin-left:20px;"></a>
+                <hr>
+            </div>
+
+      {% endif %}
 
 
   </div>
