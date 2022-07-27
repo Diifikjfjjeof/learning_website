@@ -18,7 +18,7 @@
     <div class='navbar-collapse collapse ' id='data'>
       <ul class='navbar-nav ms-auto '>
 <!--        ms(left auto) me(right auto)-->
-        <li class='nav-item '><a href="#learning" class='nav-link text-white' style="font-size:35px;">Learning </a></li>
+        <li class='nav-item '><a href=".learning" class='nav-link text-white' style="font-size:35px;">Learning </a></li>
         <li class='nav-item '><a class='nav-link text-white' style="font-size:35px;" href="{{url_for('add')}}">Store</a></li>
         <li class='nav-item '><a class='nav-link text-white' style='font-size:35px;padding-right:60px;' href="#test">Review</a></li>
       </ul>
@@ -34,7 +34,7 @@
   <div style="padding-top:150px;font-size:30px;text-align:center;font-family: 'Euphoria Script', cursive;height:400px;"><img src="../static/images/flower-icon.png" style="width:5%;padding-right:20px;">Work hard to see the brand-new world around you</div>
 
 <!--  -------------------------------------------------------------------------------------------------------------------->
-  <div id='learning' class='row' style="text-align:center;background-image:url('../static/images/flower.jpg');background-repeat:no-repeat;background-position:center;background-size:cover;">
+  <div class='learning' class='row' style="text-align:center;background-image:url('../static/images/flower.jpg');background-repeat:no-repeat;background-position:center;background-size:cover;">
     {% if data: %}
         {% for word in data:%}
             <div class="col-lg-8 col-md-10 mx-auto" style="margin:50px;backdrop-filter:blur(50px);">
@@ -48,22 +48,29 @@
                 <hr>
             </div>
         {% endfor %}
+
+  </div>
       {% else: %}
-        <div class="col-lg-8 col-md-10 mx-auto" style="margin:50px;backdrop-filter:blur(50px);">
+        <div class='learning' class='row' style="text-align:center;background-image:url('../static/images/flower.jpg');background-repeat:no-repeat;background-position:center;background-size:cover;">
+
+
+            <div class="col-lg-8 col-md-10 mx-auto" style="margin:50px;backdrop-filter:blur(50px);">
                 <h1 style="font-size:50px;font-family: 'Gamja Flower', cursive;line-height:2;z-index:2;color:white;padding-left:20px;">
-                  </h1>
-                <h3 style="font-family: 'Gamja Flower', cursive;line-height:1.5;margin-left:15px;color:white">Meaning : </h3>
-                <h3 style="font-family: 'Gamja Flower', cursive;color:white;line-height:1.5;margin-left:15px;">Sentence :</h3>
+                  {{word.term}}</h1>
+                <h3 style="font-family: 'Gamja Flower', cursive;line-height:1.5;margin-left:15px;color:white">Meaning : {{word.meaning}}</h3>
+                <h3 style="font-family: 'Gamja Flower', cursive;color:white;line-height:1.5;margin-left:15px;">Sentence :{{word.sentence|safe}}</h3>
                 <a class="btn btn-dark btn-lg" style="margin-top:30px;font-family: 'Gamja Flower', cursive;" href="{{url_for('edit',id=word.id)}}">Edit post</a>
                 <a class="btn btn-dark btn-lg" style="margin-top:30px;font-family: 'Gamja Flower', cursive;" href="{{url_for('add')}}">Create post</a>
                 <a href="{{url_for('delete',_anchor='learning',id=word.id)}}" class="btn btn-close" style="margin-top:35px;margin-left:20px;"></a>
                 <hr>
             </div>
 
+
+        </div>
+
       {% endif %}
 
 
-  </div>
 
 <!--  -------------------------------------------------------------------------------------------------------------------->
      <div style="padding-top:150px;font-size:30px;text-align:center;font-family: 'Euphoria Script', cursive;height:400px;"><img src="../static/images/flower1.png" style="width:5%;padding-right:20px;">Makeing unknown become the weapon of the knowledge</div>
