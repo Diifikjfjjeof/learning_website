@@ -9,7 +9,7 @@ import random,os
 
 app = Flask(__name__)
 Bootstrap(app)
-app.secret_key = os.environ.get('KEY')
+app.secret_key = 'd;lf;ldgkflg;dlf;'
 ckeditor = CKEditor(app)
 db = SQLAlchemy(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
