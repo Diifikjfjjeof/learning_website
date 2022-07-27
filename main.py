@@ -28,7 +28,7 @@ class adddata(db.Model):
     meaning = db.Column(db.String(1000),nullable = False)
     sentence = db.Column(db.String(1000),nullable = False)
 
-# db.create_all()
+db.create_all()
 # --------------------------------------------------start here------------------
 previous_word = None
 @app.route('/',methods=['POST','GET'])
