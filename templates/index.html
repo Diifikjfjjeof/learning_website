@@ -10,22 +10,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Gamja+Flower&display=swap" rel="stylesheet">
   </head>
-  <body>
-  <div style="text-align:center;height:700px;width:100%;background-repeat:no-repeat;background-position:center;background-size:cover;background-image:url('../static/images/blossom.jpg');opacity:0.75;">
-      <nav class='navbar navbar-expand-lg'>
-    <a href="#" class='navbar-brand text-white' style="font-size:35px;"><i class="fa-solid fa-otter"></i>Learner</a>
-    <button  class='navbar-toggler' type="button" name="button" data-bs-toggle='collapse' href='#data'><span class='navbar-toggler-icon'></span></button>
-    <div class='navbar-collapse collapse ' id='data'>
-      <ul class='navbar-nav ms-auto '>
-<!--        ms(left auto) me(right auto)-->
-        <li class='nav-item '><a href=".learning" class='nav-link text-white' style="font-size:35px;">Learning </a></li>
-        <li class='nav-item '><a class='nav-link text-white' style="font-size:35px;" href="{{url_for('add')}}">Store</a></li>
-        <li class='nav-item '><a class='nav-link text-white' style='font-size:35px;padding-right:60px;' href="#test">Review</a></li>
-      </ul>
-    </div>
-  </nav >
 
-     <p class="col-lg-8 col-md-10 col-sm-10" style="margin:0 auto;float:none;color:#fff;font-size:20vmin;margin-top:100px;font-family: 'Euphoria Script', cursive;text-shadow:0.1em 0.2em 0.2em black;"><strong>Blossom in your way</strong></p>
+  <body >
+  <div style="height:700px;text-align:center;width:100%;background-repeat:no-repeat;background-position:center;background-size:cover;background-image:url('../static/images/blossom.jpg');opacity:0.75;">
+      <nav class='navbar navbar-expand-md fixed-top' style="opacity:0.7;background:#fff;">
+        <a href="#" class='navbar-brand text-black' style="font-size:35px;"><i class="fa-solid fa-otter"></i>Learner</a>
+        <button  class='navbar-toggler' type="button" name="button" data-bs-toggle='collapse' href='#data'>menu<span class='navbar-toggler-icon'></span></button>
+        <div class='navbar-collapse collapse ' style="margin-right:20px;" id='data'>
+              <ul class='navbar-nav ms-auto '>
+        <!--        ms(left auto) me(right auto)-->
+                <li class='nav-item '><a href="#learning" class='nav-link text-black' style="font-size:35px;">Learning </a></li>
+                <li class='nav-item '><a class='nav-link text-black' style="font-size:35px;" href="{{url_for('add')}}">Store</a></li>
+                <li class='nav-item '><a class='nav-link text-black' style='font-size:35px;' href="#test">Review</a></li>
+              </ul>
+        </div>
+      </nav >
+
+     <p class="col-lg-8 col-md-10 col-sm-10" style="padding-top:200px;margin:0 auto;float:none;color:#fff;font-size:20vmin;font-family: 'Euphoria Script', cursive;text-shadow:0.1em 0.2em 0.2em black;"><strong>Blossom in your way</strong></p>
 
   </div>
 
@@ -34,12 +35,12 @@
   <div style="padding-top:150px;font-size:30px;text-align:center;font-family: 'Euphoria Script', cursive;height:400px;"><img src="../static/images/flower-icon.png" style="width:5%;padding-right:20px;">Work hard to see the brand-new world around you</div>
 
 <!--  -------------------------------------------------------------------------------------------------------------------->
-  {% if data: %}
-  <div class='learning' class='row' style="text-align:center;background-image:url('../static/images/flower.jpg');background-repeat:no-repeat;background-position:center;background-size:cover;">
 
+  <div id='learning' class='row ' style="text-align:center;background-image:url('../static/images/flower.jpg');background-repeat:no-repeat;background-position:center;background-size:cover;">
+      {% if data: %}
         {% for word in data:%}
             <div class="col-lg-8 col-md-10 mx-auto" style="margin:50px;backdrop-filter:blur(50px);">
-                <h1 style="font-size:50px;font-family: 'Gamja Flower', cursive;line-height:2;z-index:2;color:white;padding-left:20px;">
+                <h1 style="font-size:50px;font-family: 'Gamja Flower', cursive;line-height:2;color:white;padding-left:20px;">
                   {{word.term}}</h1>
                 <h3 style="font-family: 'Gamja Flower', cursive;line-height:1.5;margin-left:15px;color:white">Meaning : {{word.meaning}}</h3>
                 <h3 style="font-family: 'Gamja Flower', cursive;color:white;line-height:1.5;margin-left:15px;">Sentence :{{word.sentence|safe}}</h3>
@@ -49,14 +50,9 @@
                 <hr>
             </div>
         {% endfor %}
-
-  </div>
       {% else: %}
-        <div class='learning row' style="text-align:center;background-image:url('../static/images/flower.jpg');background-repeat:no-repeat;background-position:center;background-size:cover;">
-
-
             <div class="col-lg-8 col-md-10 mx-auto" style="margin:50px;backdrop-filter:blur(50px);">
-                <h1 style="font-size:50px;font-family: 'Gamja Flower', cursive;line-height:2;z-index:2;color:white;padding-left:20px;">
+                <h1 style="font-size:50px;font-family: 'Gamja Flower', cursive;line-height:2;color:white;padding-left:20px;">
                   </h1>
                 <h3 style="font-family: 'Gamja Flower', cursive;line-height:1.5;margin-left:15px;color:white">Meaning : </h3>
                 <h3 style="font-family: 'Gamja Flower', cursive;color:white;line-height:1.5;margin-left:15px;">Sentence :</h3>
@@ -65,20 +61,15 @@
                 <a href="{{url_for('home')}}" class="btn btn-close" style="margin-top:35px;margin-left:20px;"></a>
                 <hr>
             </div>
-
-
-        </div>
-
       {% endif %}
-
-
+  </div>
 
 <!--  -------------------------------------------------------------------------------------------------------------------->
      <div style="padding-top:150px;font-size:30px;text-align:center;font-family: 'Euphoria Script', cursive;height:400px;"><img src="../static/images/flower1.png" style="width:5%;padding-right:20px;">Makeing unknown become the weapon of the knowledge</div>
 <!------------------------------------------------------------------------------------------------------------------------->
-   <div id='test' class='row' style="background-image:url('../static/images/letter.jpg');background-repeat:no-repeat;background-position:center;background-size:cover;">
+   <div id='test' class='row' style="margin:0;background-image:url('../static/images/letter.jpg');background-repeat:no-repeat;background-position:center;background-size:cover;">
     <div class="col-lg-8 col-md-10 mx-auto" style="text-align:center;margin:150px;backdrop-filter:blur(100px);">
-      <h1 style="font-size:50px;font-family: 'Gamja Flower', cursive;line-height:2;z-index:2;color:white;padding-left:20px;">{{random.term}}</h1>
+      <h1 style="font-size:50px;font-family: 'Gamja Flower', cursive;line-height:2;color:white;padding-left:20px;">{{random.term}}</h1>
       <h3 style="font-family: 'Gamja Flower', cursive;line-height:1.5;margin-left:15px;color:white">Meaning : {{random.meaning}} </h3>
       <h3 style="font-family: 'Gamja Flower', cursive;color:white;line-height:1.5;margin-left:15px;">Sentence :　{{random.sentence|safe}}</h3>
         <div style="text-align:center">
@@ -108,7 +99,7 @@
 <!-------------------------------------------------------------------------------------------------------------------------->
 <!--  footer-->
         <div style="text-align:center;background-image:url('../static/images/footer.jpg');background-repeat:no-repeat;background-position:center;background-size:cover;padding-top:150px;">
-            <h6 style="font-family: 'Gamja Flower', cursive;color:#fff;font-size:25px;">2022/7/19 Lilian</h6>
+            <h6 style="margin:0;font-family: 'Gamja Flower', cursive;color:#fff;font-size:25px;">2022/7/19 Lilian</h6>
         </div>
 <!------------------------------------------------------------------------------------------------------------------------->
 
