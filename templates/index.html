@@ -78,7 +78,6 @@
             {% with messages = get_flashed_messages() %}
             {% if messages: %}
 
-
                 {%for message in messages:%}
                 <p style="color:red;font-family: 'Gamja Flower', cursive;font-size:25px;"><span style="color:black"><strong>Unfamiliar & Last One :</strong></span><strong> {{message}}</strong></p>
                 {% endfor %}
@@ -87,8 +86,8 @@
             {% endwith %}
 
             <form action="{{url_for('home', _anchor='test')}}" method="post">
-                <button value='1' name='no' class="btn btn-dark btn-lg" style="margin-top:20px;font-family: 'Gamja Flower', cursive;">No idea</button>
-                <button value='2' name="yes" class="btn btn-dark btn-lg" style="margin-top:30px;font-family: 'Gamja Flower', cursive;">Got it</button>
+                <button value='1' name='no' class="btn btn-dark btn-lg" style="maigin-top:10px;font-family: 'Gamja Flower', cursive;">No idea</button>
+                <button value='2' name="yes" class="btn btn-dark btn-lg" style="margin-top:10px;font-family: 'Gamja Flower', cursive;">Got it</button>
             </form>
         </div>
 
