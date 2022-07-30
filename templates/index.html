@@ -74,7 +74,7 @@
       <h3 style="font-family: 'Gamja Flower', cursive;line-height:1.5;margin-left:15px;color:white">Meaning : {{random.meaning}} </h3>
       <h3 style="font-family: 'Gamja Flower', cursive;color:white;line-height:1.5;margin-left:15px;">Sentence :　{{random.sentence|safe}}</h3>
         <div style="text-align:center">
-            <br>
+
             {% with messages = get_flashed_messages() %}
             {% if messages: %}
 
@@ -86,7 +86,7 @@
             {% endwith %}
 
             <form action="{{url_for('home', _anchor='test')}}" method="post">
-                <button value='1' name='no' class="btn btn-dark btn-lg" style="maigin-top:10px;font-family: 'Gamja Flower', cursive;">No idea</button>
+                <button value='1' name='no' class="btn btn-dark btn-lg" style="margin-top:10px;font-family: 'Gamja Flower', cursive;">No idea</button>
                 <button value='2' name="yes" class="btn btn-dark btn-lg" style="margin-top:10px;font-family: 'Gamja Flower', cursive;">Got it</button>
             </form>
         </div>
