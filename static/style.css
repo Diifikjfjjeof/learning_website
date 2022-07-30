@@ -1,7 +1,11 @@
 .nav-item,.navbar-brand{margin-left:10px;}
+
 i {margin-right:10px;}
+
 a {font-family: 'Gamja Flower', cursive;}
+
 h1 {line-height:3}
+
 @media (max-width:900px)
 {.title {font-size:65px;}}
 
@@ -9,7 +13,13 @@ h1 {line-height:3}
 {.title {font-size:9rem;}}
 
 @media (max-width:900px)
-{.learning {font-size:100px;}}
+{#learning,#back-up-learning,#test {font-size:100px;}}
 
 @media (min-width:900px)
-{.back-up-learning {font-size:50px;}}
+{#learning,#back-up-learning,#test {font-size:50px;}}
+
+@media (max-width:900px)
+{#learning a,#test a {font-size:30px;}}
+
+@media (min-width:900px)
+{#learning a,#test a {font-size:20px;}}
